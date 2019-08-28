@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/book-logger.css}" rel="stylesheet" />
+<!--    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>-->
+
+    <title>Book Logger</title>
+</head>
+<body>
+    <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a th:href="${userName != null} ? '/book-logger/home' : '/book-logger/login'" class="navbar-brand">Book Logger</a>
+            </div>
+            <div th:if="${userName != null}" class="header-logout">
+                <a href="/book-logger/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

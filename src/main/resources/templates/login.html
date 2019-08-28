@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+    <div th:replace="fragments :: page-header"></div>
+
+
+    <div class="container body-content">
+        <h1 th:text="${title}">Default Title</h1>
+
+        <div class="mainDiv">
+            <div class="childDiv">
+                <img th:src="@{/images/BookLogger.png}" />
+            </div>
+            <div class="childDiv">
+                <h2>Login To Your Account</h2>
+
+                <form method="post" action="#" th:action="${'/book-logger/login'}" th:object="${userForm}">
+                    <span th:errors="*{email}" class="error"></span>
+                    <table>
+                        <tr>
+                            <td><label th:for="email">Email</label></td>
+                            <td>
+                                <input class="form-control" th:field="*{email}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label th:for="password">Password</label></td>
+                            <td>
+                                <input type="password" class="form-control" th:field="*{password}" />
+                                <span th:errors="*{password}" class="error"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><button type="submit" class="btn btn-primary">Login</button></td>
+                        </tr>
+                    </table>
+                </form>
+                <p>If you don't have an account, you may <a href="/book-logger/register">Register</a> here.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

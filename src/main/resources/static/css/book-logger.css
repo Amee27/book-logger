@@ -1,0 +1,50 @@
+.body-content {
+    margin-top: 72px;
+}
+
+td, th {
+    padding: 8px;
+}
+
+.mainDiv {
+    width: 100%;
+    display: inline-flex;
+}
+
+.childDiv {
+    width: 50%;
+}
+
+.header-logout {
+    float: right;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.mainDiv {
+    background-color: LightBlue;
+}
+
+.table-primary {
+    background-color: #b8daff;
+}
+
+.table-secondary {
+    background-color: #d6d8db;
+}
+
+.table-header {
+    background-color: rgba(0,0,0,.075);
+}
+
+.new-book-div {
+    text-align: right;
+    margin-right: 60px;
+    padding-bottom: 15px;
+}

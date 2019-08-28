@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <div>
+        <h2 th:text="${title}">Default Title</h2>
+    </div>
+    <div>
+        <div>
+            <tr>
+                <td><h1>My Book List</h1></td>
+            </tr>
+        </div>
+        <div class="new-book-div">
+            <tr>
+                <td><a href="/book-logger/add">Add New Book</a></td>
+            </tr>
+        </div>
+        <div>
+            <p th:unless="${books} and ${books.size()}">No book :( </p>
+
+            <table class="table">
+
+                <tr class="table-header">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Published Year</th>
+                    <th>Actions</th>
+                </tr>
+
+                <tr class="" th:classappend="${bIndex.even} ? table-primary : table-secondary" th:each="book, bIndex : ${books}">
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.category}"></td>
+                    <td th:text="${book.published_year}"></td>
+                    <td><a href="#">Edit</a></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+

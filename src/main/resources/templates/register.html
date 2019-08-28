@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+    <div th:replace="fragments :: page-header"></div>
+
+
+    <div class="container body-content">
+
+        <h2>Please Register here</h2>
+
+        <form method="post" action="#" th:action="${'/book-logger/registration'}" th:object="${registerForm}">
+            <table>
+                <tr>
+                    <td><label th:for="name">Name</label></td>
+                    <td>
+                        <input class="form-control" th:field="*{name}" />
+                        <span th:errors="*{name}" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="name">Email</label></td>
+                    <td>
+                        <input class="form-control" th:field="*{email}" />
+                        <span th:errors="*{email}" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="name">Password</label></td>
+                    <td>
+                        <input class="form-control" type="password" th:field="*{password}" />
+                        <span th:errors="*{password}" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label th:for="name">Verify Password</label></td>
+                    <td>
+                        <input class="form-control" type="password" th:field="*{verifyPassword}" />
+                        <span th:errors="*{verifyPassword}" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button type="submit" class="btn btn-info">Register</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+</html>
+

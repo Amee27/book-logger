@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+
+<div class="container body-content">
+
+    <h2>Add Book</h2>
+
+    <form method="post" action="#" th:action="${'/book-logger/add'}" th:object="${book}">
+        <table>
+            <tr>
+                <td><label th:for="title">Title</label></td>
+                <td>
+                    <input class="form-control" th:field="*{title}" />
+                    <span th:errors="*{title}" class="error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label th:for="author">Author</label></td>
+                <td>
+                    <input class="form-control" th:field="*{author}" />
+                    <span th:errors="*{author}" class="error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label th:for="published_year">Published Year</label></td>
+                <td>
+                    <input class="form-control" th:field="*{published_year}" />
+                    <span th:errors="*{published_year}" class="error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label th:for="category">Category</label></td>
+                <td>
+                    <input class="form-control" th:field="*{category}" />
+                    <span th:errors="*{category}" class="error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button type="submit" class="btn btn-primary">Add</button> &nbsp;&nbsp; <button type="button" class="btn btn-default" onclick="window.history.back();">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+</body>
+</html>
+
