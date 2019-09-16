@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BookService {
     Long save(Book book);
-    Book findByTitle(String title);
+    Book findByTitle(String title, User user);
+    Book findById(Long id);
     List<Book> findByUser(User user);
+    void deleteById(Long id);
 }

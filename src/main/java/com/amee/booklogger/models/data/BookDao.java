@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 @Transactional
 public interface BookDao extends CrudRepository<Book, Long> {
-    Book findByTitle(String title);
+    Book findByTitleAndUser(String title, User user);
 
     List<Book> findAllByUser(User user);
 }

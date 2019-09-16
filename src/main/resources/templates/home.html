@@ -23,7 +23,7 @@
             </tr>
         </div>
         <div>
-            <p th:unless="${books} and ${books.size()}">No book :( </p>
+            <p class="noBook" th:unless="${books} and ${books.size()}">No book :( </p>
 
             <table class="table">
 
@@ -32,6 +32,7 @@
                     <th>Author</th>
                     <th>Category</th>
                     <th>Published Year</th>
+                    <th>Rating</th>
                     <th>Actions</th>
                 </tr>
 
@@ -40,7 +41,10 @@
                     <td th:text="${book.author}"></td>
                     <td th:text="${book.category}"></td>
                     <td th:text="${book.published_year}"></td>
-                    <td><a href="#">Edit</a></td>
+                    <td><span th:if="${book.rating == null}">Not Rated</span> <input th:if="${book.rating != null}" id="input1" type="text" th:value="${book.rating}" data-readonly="true" class="rating" data-size="xs" data-show-clear="false" data-show-caption="false" data-step="1"/></td>
+                    <td><a th:href="'/book-logger/edit/' + ${book.id}">Edit</a>&nbsp;&nbsp;
+                        <a th:href="'/book-logger/rating/' + ${book.id}">Complete</a> &nbsp;&nbsp;
+                        <a th:href="'/book-logger/delete/' + ${book.id}" onclick="return confirm('Are you sure you want to delete the book?');">Delete</a></td>
                 </tr>
 
             </table>
@@ -49,5 +53,12 @@
 
 </div>
 </body>
+<script>
+$(document).on('ready', function () {
+    $("#input1").rating({'size':'sm',
+        'displayOnly': 'true',
+        });
+});
+</script>
 </html>
 

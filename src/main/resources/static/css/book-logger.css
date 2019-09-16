@@ -31,6 +31,10 @@ td, th {
     background-color: LightBlue;
 }
 
+.checked {
+  color: orange;
+}
+
 .table-primary {
     background-color: #b8daff;
 }
@@ -48,3 +52,17 @@ td, th {
     margin-right: 60px;
     padding-bottom: 15px;
 }
+
+.regiDiv {
+    background-color: LightBlue;
+    }
+
+.noBook {
+    color: Blue;
+    font-size: 20px;
+    }
+
+.addBook {
+    background-color: LightBlue;
+    }
+

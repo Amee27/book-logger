@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+
+<div class="container body-content">
+
+
+    <form method="post" action="#" th:action="${'/book-logger/rating'}" th:object="${book}">
+        <h2>Awesome! You have completed book <span th:text="${book.title}"/>.</h2><br/><br/>
+        <h4> Now please rate the book here.</h4>
+
+       <div>
+           <input id="input1" type="text" th:field="*{rating}" class="rating" data-size="lg" data-show-clear="false" data-step="1"/>
+           <input type="hidden" th:field="*{title}" />
+       </div>
+        <button class="btn btn-primary">Submit</button>&nbsp;
+        <button type="button" class="btn btn-default" onclick="window.history.back();">Cancel</button>
+    </form>
+
+</div>
+</body>
+<script>
+$(document).on('ready', function () {
+    $("#input1").rating({'size':'lg', clearCaption: 'No stars yet'});
+});
+</script>
+</html>

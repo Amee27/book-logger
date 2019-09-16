@@ -22,6 +22,9 @@ public class Book {
     @Column(nullable = false)
     private String category;
 
+    @Column
+    private Integer rating;
+
     @ManyToOne
     private User user;
 
@@ -63,6 +66,14 @@ public class Book {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public User getUser() {

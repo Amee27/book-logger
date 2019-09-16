@@ -12,6 +12,7 @@
         <h2>Please Register here</h2>
 
         <form method="post" action="#" th:action="${'/book-logger/registration'}" th:object="${registerForm}">
+            <div class="regiDiv">
             <table>
                 <tr>
                     <td><label th:for="name">Name</label></td>
@@ -48,6 +49,7 @@
                     </td>
                 </tr>
             </table>
+            </div>
         </form>
 
     </div>

@@ -23,12 +23,22 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findByTitle(String title) {
-        return bookDao.findByTitle(title);
+    public Book findByTitle(String title, User user) {
+        return bookDao.findByTitleAndUser(title, user);
     }
 
     @Override
     public List<Book> findByUser(User user) {
         return bookDao.findAllByUser(user);
+    }
+
+    @Override
+    public Book findById(Long id) {
+        return bookDao.findOne(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        bookDao.delete(id);
     }
 }

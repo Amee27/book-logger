@@ -27,7 +27,9 @@ public class BookValidator implements Validator {
         if (!book.getTitle().isEmpty() && (book.getTitle().length() < 2 || book.getTitle().length() > 150)) {
             errors.rejectValue("title", "Size.book.title", "Title can be 4 to 50 characters long.");
         }
-        if (bookService.findByTitle(book.getTitle()) != null) {
+
+        Book existingBook = bookService.findByTitle(book.getTitle(), book.getUser());
+        if (existingBook != null && (book.getId() == null || !existingBook.getId().equals(book.getId()))) {
             errors.rejectValue("title", "NotValid","Book is already exists.");
         }
 
